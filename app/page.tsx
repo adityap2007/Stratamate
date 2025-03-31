@@ -14,9 +14,6 @@ export default function Page() {
         about important updates. By integrating serverless edge functions, automated workflows, and real-time updates, the website 
         enhances transparency and simplifies property management for both strata committees and residents.`}
       </p>
-      <div className="my-8">
-        <BlogPosts />
-      </div>
     </section>
   )
 }
