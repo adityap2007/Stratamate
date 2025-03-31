@@ -4,14 +4,15 @@ export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
+        Strata Mate
       </h1>
       <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
+        {`The purpose of this Strata Management website is to streamline the administration and 
+        communication within apartment buildings and residential communities. It provides essential tools for 
+        managing committee members, levy payments, maintenance requests, and notices in an efficient, digital format. 
+        Through its user-friendly interface, residents can track financial obligations, submit repair requests, and stay informed 
+        about important updates. By integrating serverless edge functions, automated workflows, and real-time updates, the website 
+        enhances transparency and simplifies property management for both strata committees and residents.`}
       </p>
       <div className="my-8">
         <BlogPosts />
