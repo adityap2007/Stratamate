@@ -2,6 +2,7 @@
 export default function Page() {
   return (
     <section>
+      <img src="ChatGPT Image Apr 1, 2025, 08" alt="Description" width="300" />
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         Strata Mate
       </h1>
