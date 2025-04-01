@@ -7,6 +7,27 @@ const navItems = {
   '/blog': {
     name: 'Committee Members',
   },
+  '/building-management': {
+    name: 'Building Management',
+  },
+  '/maintenance': {
+    name: 'Maintenance',
+  },
+  '/parking': {
+    name: 'Parking',
+  },
+  '/documents': {
+    name: 'Documents',
+  },
+  '/announcements': {
+    name: 'Announcements',
+  },
+  '/events': {
+    name: 'Events',
+  },
+  '/form-demo': {
+    name: 'Form Demo',
+  },
   'https://vercel.com/templates/next.js/portfolio-starter-kit': {
     name: 'deploy',
   },
