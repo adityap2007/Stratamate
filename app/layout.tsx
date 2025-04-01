@@ -13,10 +13,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: {
-    default: 'Strata Mate',
-    template: '%s | Strata Mate',
-  },
+  title: 'Strata Mate',
   description: 'Your Digital Strata Management Solution',
   openGraph: {
     title: 'Strata Mate',
