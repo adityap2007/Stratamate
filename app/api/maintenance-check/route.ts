@@ -1,38 +1,12 @@
-import { NextResponse } from 'next/server';
-import { env } from '../../../lib/env';
+import { env } from '../../../lib/env'
+import { NextResponse } from 'next/server'
 
 export async function GET() {
-  try {
-    // Check if we're in maintenance mode
-    const isMaintenanceMode = env.maintenanceMode;
-
-    // Simulated system checks
-    const checks = {
-      database: await checkDatabaseConnection(),
-      storage: await checkStorageSpace(),
-      services: await checkCriticalServices(),
-      lastChecked: new Date().toISOString()
-    };
-
-    // Log the maintenance check
-    console.log('Maintenance check completed:', {
-      timestamp: new Date().toISOString(),
-      checks,
-      maintenanceMode: isMaintenanceMode
-    });
-
-    return NextResponse.json({
-      status: 'success',
-      maintenanceMode: isMaintenanceMode,
-      checks
-    });
-  } catch (error) {
-    console.error('Maintenance check failed:', error);
-    return NextResponse.json(
-      { status: 'error', message: 'Maintenance check failed' },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json({
+    status: 'ok',
+    maintenanceMode: env.maintenanceMode,
+    timestamp: new Date().toISOString()
+  })
 }
 
 // Simulated check functions

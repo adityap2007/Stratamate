@@ -23,10 +23,12 @@ export const env = {
 
   // Building Information
   building: {
-    name: process.env.NEXT_PUBLIC_BUILDING_NAME || 'Strata Mate',
-    address: process.env.NEXT_PUBLIC_BUILDING_ADDRESS || '123 Example Street',
-    contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'contact@stratamate.com',
+    name: 'Strata Mate',
+    contactEmail: 'contact@stratamate.com',
+    address: '123 Strata Street, Sydney NSW 2000',
   },
+
+  environment: process.env.NEXT_PUBLIC_ENVIRONMENT || 'development'
 } as const;
 
 // Validate required environment variables
