@@ -11,7 +11,8 @@ const navItems = {
   '/parking': 'Parking',
   '/documents': 'Documents',
   '/announcements': 'Announcements',
-  '/events': 'Events'
+  '/events': 'Events',
+  '/committee': 'Committee Members'
 }
 
 export function Navbar() {
