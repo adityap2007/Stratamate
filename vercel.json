@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "buildCommand": "pnpm build",
-  "installCommand": "pnpm install",
   "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "devCommand": "npm run dev",
+  "outputDirectory": ".next",
   "regions": ["syd1"],
   "env": {
     "NEXT_PUBLIC_API_URL": "production-api-url",
