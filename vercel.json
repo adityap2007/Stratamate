@@ -1,60 +1,6 @@
 {
   "version": 2,
-  "framework": "nextjs",
   "buildCommand": "npm run build",
   "installCommand": "npm install --legacy-peer-deps",
-  "devCommand": "npm run dev",
-  "outputDirectory": ".next",
-  "regions": ["syd1"],
-  "env": {
-    "NEXT_PUBLIC_API_URL": "production-api-url",
-    "NEXT_PUBLIC_ENVIRONMENT": "production"
-  },
-  "crons": [
-    {
-      "path": "/api/maintenance-check",
-      "schedule": "0 0 * * *"
-    },
-    {
-      "path": "/api/daily-backup",
-      "schedule": "0 1 * * *"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
-      ]
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/old-page",
-      "destination": "/new-page",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    }
-  ],
-  "git": {
-    "deploymentEnabled": {
-      "main": true
-    }
-  }
+  "framework": null
 } 
