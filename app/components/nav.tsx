@@ -7,8 +7,9 @@ const navItems = {
   '/parking': 'Parking',
   '/notices': 'Notices',
   '/events': 'Events',
-  '/committee': 'Committee'
-}
+  '/committee': 'Committee Members',
+  '/form': 'Contact Form'
+ }
 
 export default function Navbar() {
   return (
