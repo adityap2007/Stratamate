@@ -4,11 +4,11 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
 
-function Table({ data }) {
-  let headers = data.headers.map((header, index) => (
+function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
+  let headers = data.headers.map((header: string, index: number) => (
     <th key={index}>{header}</th>
   ))
-  let rows = data.rows.map((row, index) => (
+  let rows = data.rows.map((row: string[], index: number) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
         <td key={cellIndex}>{cell}</td>
@@ -26,7 +26,7 @@ function Table({ data }) {
   )
 }
 
-function CustomLink(props) {
+function CustomLink(props: { href: string; children: React.ReactNode }) {
   let href = props.href
 
   if (href.startsWith('/')) {
@@ -44,11 +44,11 @@ function CustomLink(props) {
   return <a target="_blank" rel="noopener noreferrer" {...props} />
 }
 
-function RoundedImage(props) {
+function RoundedImage(props: { alt: string; [key: string]: any }) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />
 }
 
-function Code({ children, ...props }) {
+function Code({ children, ...props }: { children: string; [key: string]: any }) {
   let codeHTML = highlight(children)
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
