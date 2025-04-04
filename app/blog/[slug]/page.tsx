@@ -91,7 +91,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
         </p>
       </div>
       <article className="prose">
-        <CustomMDX source={post.content} />
+        <CustomMDX components={{}}>{post.content}</CustomMDX>
       </article>
     </section>
   )

@@ -99,7 +99,7 @@ let components = {
   Table,
 }
 
-export function CustomMDX(props: { components?: Record<string, unknown> }) {
+export function CustomMDX(props: { components?: Record<string, unknown>; children: string }) {
   return (
     <MDXRemote
       {...props}
