@@ -12,7 +12,8 @@ const navItems = {
   '/documents': 'Documents',
   '/announcements': 'Announcements',
   '/events': 'Events',
-  '/committee': 'Committee Members'
+  '/committee': 'Committee Members',
+  '/form': 'Contact Form'
 }
 
 export function Navbar() {
