@@ -3,7 +3,15 @@
 import { useState } from 'react';
 
 export default function MaintenancePage() {
-  const [requests, setRequests] = useState([]);
+  const [requests, setRequests] = useState<Array<{
+    id: number;
+    status: string;
+    date: string;
+    title: string;
+    description: string;
+    priority: string;
+    location: string;
+  }>>([]);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -11,7 +19,7 @@ export default function MaintenancePage() {
     location: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newRequest = {
       ...formData,
@@ -19,7 +27,7 @@ export default function MaintenancePage() {
       status: 'pending',
       date: new Date().toLocaleDateString()
     };
-    setRequests([...requests, newRequest]);
+    setRequests((prevRequests) => [...prevRequests, newRequest]);
     setFormData({ title: '', description: '', priority: 'low', location: '' });
   };
 
