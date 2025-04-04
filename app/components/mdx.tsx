@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
@@ -31,7 +31,7 @@ function CustomLink(props: { href: string; children: React.ReactNode }) {
 
   if (href.startsWith('/')) {
     return (
-      <Link href={href} {...props}>
+      <Link {...props}>
         {props.children}
       </Link>
     )
@@ -44,8 +44,8 @@ function CustomLink(props: { href: string; children: React.ReactNode }) {
   return <a target="_blank" rel="noopener noreferrer" {...props} />
 }
 
-function RoundedImage(props: { alt: string; [key: string]: any }) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+function RoundedImage({ alt, ...props }: { alt: string } & ImageProps) {
+  return <Image className="rounded-lg" alt={alt} {...props} />
 }
 
 function Code({ children, ...props }: { children: string; [key: string]: any }) {
@@ -53,7 +53,7 @@ function Code({ children, ...props }: { children: string; [key: string]: any }) 
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
 
-function slugify(str) {
+function slugify(str: string) {
   return str
     .toString()
     .toLowerCase()
@@ -64,8 +64,8 @@ function slugify(str) {
     .replace(/\-\-+/g, '-') // Replace multiple - with single -
 }
 
-function createHeading(level) {
-  const Heading = ({ children }) => {
+function createHeading(level: number) {
+  const Heading = ({ children }: { children: string }) => {
     let slug = slugify(children)
     return React.createElement(
       `h${level}`,
@@ -99,7 +99,7 @@ let components = {
   Table,
 }
 
-export function CustomMDX(props) {
+export function CustomMDX(props: { components?: Record<string, unknown> }) {
   return (
     <MDXRemote
       {...props}
