@@ -26,12 +26,12 @@ function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   )
 }
 
-function CustomLink(props: { href: string; children: React.ReactNode }) {
-  let href = props.href
+function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  let href = props.href || ''
 
   if (href.startsWith('/')) {
     return (
-      <Link {...props}>
+      <Link href={href} {...props}>
         {props.children}
       </Link>
     )
@@ -48,8 +48,8 @@ function RoundedImage({ alt, ...props }: { alt: string } & ImageProps) {
   return <Image className="rounded-lg" alt={alt} {...props} />
 }
 
-function Code({ children, ...props }: { children: string; [key: string]: any }) {
-  let codeHTML = highlight(children)
+function Code({ children, ...props }: React.HTMLAttributes<HTMLElement>) {
+  let codeHTML = highlight(children as string)
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
 
@@ -65,11 +65,11 @@ function slugify(str: string) {
 }
 
 function createHeading(level: number) {
-  const Heading = ({ children }: { children: string }) => {
-    let slug = slugify(children)
+  const Heading = (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+    let slug = slugify(props.children as string)
     return React.createElement(
       `h${level}`,
-      { id: slug },
+      { id: slug, ...props },
       [
         React.createElement('a', {
           href: `#${slug}`,
@@ -77,7 +77,7 @@ function createHeading(level: number) {
           className: 'anchor',
         }),
       ],
-      children
+      props.children
     )
   }
 
@@ -99,10 +99,10 @@ let components = {
   Table,
 }
 
-export function CustomMDX(props: { components?: Record<string, unknown>; children: string }) {
+export function CustomMDX(props: { components?: Record<string, unknown>; children: string; source: string }) {
   return (
     <MDXRemote
-      {...props}
+      source={props.source}
       components={{ ...components, ...(props.components || {}) }}
     />
   )
